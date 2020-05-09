@@ -1,0 +1,24 @@
+.btnStyle(@width: 170px, @height: 50px) {
+  background: #49bcab;
+  border: 2px solid #49bcab;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  max-width: @width;
+  height: @height;
+  line-height: @height;
+  transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  &:hover {
+    background: black;
+    border: 2px solid black;
+  }
+}
+
+.margin(@top, @right, @bottom, @left) {
+  margin: @arguments;
+}
