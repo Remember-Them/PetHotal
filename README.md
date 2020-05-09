@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # pethotal
 
 ## Project setup
@@ -22,3 +23,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# PetHotal
+vue-pethotal-project
+>>>>>>> 2de79eac9b5a4ff3aeccc110391e0b4bdf7502c4
