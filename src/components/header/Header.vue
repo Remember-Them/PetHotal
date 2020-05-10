@@ -78,20 +78,19 @@ export default {
 };
 </script>
 
-<style scoped>
-/* 购物车计数css */
-.header_cart_items {
-  border-radius: 50%;
-  background: #49bcab;
-  width: 20px;
-  height: 21px;
-  line-height: 21px;
-  text-align: center;
-  font-size: 12px;
-  color: #fff;
-  position: absolute;
-  top: -18px;
-  right: -18px;
+<style lang="less" scoped>
+.bgStyle(@url,@size) {
+  background: url("~@/assets/img/@{url}") no-repeat;
+  background-size: @size;
+  width: @size;
+  height: @size;
+}
+.widHei(@width,@height,@textAgain,@bg) {
+  width: @width;
+  height: @height;
+  text-align: @textAgain;
+  line-height: @height;
+  background: @bg;
 }
 /* 布局的样式 */
 .el-col {
@@ -99,112 +98,93 @@ export default {
   position: relative;
   height: 107px;
   border-radius: 4px;
-}
-.bg-purple-light {
-  text-align: center;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 107px;
-}
-.el-search {
-  background: url("~@/assets/img/search.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  background-size: 30px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  .bg-purple-light {
+    text-align: center;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 107px;
+    .el-search {
+      .bgStyle("search.png", 30px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: all 0.7s ease 0.5s;
+      &:hover {
+        .bgStyle("h-search.png", 30px);
+      }
+    }
+    /* 字体颜色 */
+    .contact_phone {
+      color: #777;
+      transition: all 0.3s ease 0.3s;
+    }
+  }
 }
 .right {
   position: relative;
   padding-top: 10px;
   text-align: right;
+  .right-wishlist,
+  .right-user,
+  .right-language {
+    margin-right: 25px;
+    color: #777;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease 0.3s;
+  }
+  .right-car {
+    .bgStyle("car.png", 25px);
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    cursor: pointer;
+    transition: all 0.7s ease 0.5s;
+    &:hover {
+      .bgStyle("h-car.png", 25px);
+    }
+    /* 购物车计数css */
+    .header_cart_items {
+      border-radius: 50%;
+      .widHei(20px, 21px, center, #49bcab);
+      font-size: 12px;
+      color: #fff;
+      position: absolute;
+      top: -18px;
+      right: -18px;
+    }
+  }
 }
 
-/* 字体颜色 */
-.contact_phone {
-  color: #777;
-  transition: all 0.3s ease 0.3s;
-}
-.right-wishlist,
-.right-user,
-.right-language {
-  margin-right: 25px;
-  color: #777;
-  font-size: 15px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease 0.3s;
-}
-
-/* 购物车的样式 */
-img.car {
-  width: 29px;
-  height: 25px;
-}
-
-.right-car {
-  background: url("~@/assets/img/car.png") no-repeat;
-  background-size: 25px;
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-}
-/* 延迟更改字体及图片颜色 */
-
-.blog,
-.about,
-.contacts,
-.catalog,
-.home,
-.collections {
-  transition: all 0.3s ease 0.3s;
-}
-.contact_phone:hover,
-.right-wishlist:hover,
-.right-language:hover,
-.right-user:hover,
-.blog:hover,
-.catalog:hover,
-.about:hover,
-.collections:hover,
-.contacts:hover,
-.home:hover {
-  color: #49bcab;
-}
-.el-search:hover {
-  background: url("~@/assets/img/h-search.png") no-repeat;
-  background-size: 30px;
-  transition: all 0.7s ease 0.5s;
-}
-.right-car:hover {
-  background: url("~@/assets/img/h-car.png") no-repeat;
-  background-size: 25px;
-  transition: all 0.7s ease 0.5s;
-}
 /* 导航的样式 */
 nav {
-  width: 100%;
-  background: #f5f5f5;
-  line-height: 44px;
-  height: 44px;
+  .widHei(100%, 44px, center, #f5f5f5);
+  .nav-content {
+    margin: 0 auto;
+    max-width: 600px;
+    height: 34px;
+    dl {
+      float: left;
+      .widHei(80px, 40px, center, #f5f5f5);
+      margin-left: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* 延迟更改字体及图片颜色 */
+    .blog,
+    .about,
+    .contacts,
+    .catalog,
+    .home,
+    .collections {
+      transition: all 0.3s ease 0.3s;
+      &:hover {
+        color: #49bcab;
+      }
+    }
+  }
 }
-.nav-content {
-  margin: 0 auto;
-  max-width: 600px;
-  height: 34px;
-}
-.nav-content dl {
-  float: left;
-  width: 80px;
-  height: 34px;
-  text-align: center;
-  margin-left: 17px;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* 购物车的样式 */
 </style>

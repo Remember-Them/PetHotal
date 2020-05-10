@@ -7,10 +7,9 @@
             <el-col :span="7">
               <dl>
                 <dt>咨询</dt>
-                <dd
-                  v-for="(item,index) in $store.getters.msgList.sort(compare)"
-                  :key="index"
-                ><span>{{item.name}}</span></dd>
+                <dd v-for="(item,index) in $store.getters.msgList.sort(compare)" :key="index">
+                  <span>{{item.name}}</span>
+                </dd>
               </dl>
               <div class="icon">
                 <i class="fa fa-facebook my-icon" aria-hidden="true"></i>
@@ -20,20 +19,26 @@
                 <i class="fa fa-youtube my-icon" aria-hidden="true"></i>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="7">
               <dl>
                 <dt>分类</dt>
-                <dd v-for="(item,index) in $store.state.collectionsList" :key="index"><span>{{item.name}}</span></dd>
+                <dd v-for="(item,index) in $store.state.collectionsList" :key="index">
+                  <span>{{item.name}}</span>
+                </dd>
               </dl>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="7">
+              <dt>通讯</dt>
+              <p>订阅Petrocope邮件列表，以接收有关新到货，特别优惠和其他折扣信息的更新。</p>
+              <input type="email" placeholder="输入你的电子邮箱" />
               <a class="btn" href="#">立即抢购</a>
             </el-col>
           </el-row>
         </div>
         <div class="brand">
-          <h1>宠物酒店</h1>
-          <span>| ©20 20 Powered by Shopify</span>
+          <h1>宠物酒店</h1>|
+          <span class="brand-num">©2020</span>
+          <span class="brand-support">Powered by Shopify</span>
         </div>
       </div>
     </el-footer>
@@ -77,62 +82,74 @@ export default {
   color: @color;
 }
 
-.my-icon {
-  cursor: pointer;
-  .footerFontColor(#49bcab, 22px);
-  transition: all 1s;
-  .margin(0,23px,0,0);
-  &:hover {
-    color: #000;
-  }
-}
 .footer {
   max-width: 1319px;
+  border-top: solid 1px #777;
+}
+.message {
+  max-width: 1319px;
+  height: 495px;
+  margin-top: 80px;
+  dt {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  dd {
+    span {
+      font-weight: 700;
+      cursor: pointer;
+      padding-bottom: 4px;
+      &:hover {
+        border-bottom: solid 2px #49bcab;
+      }
+    }
+    .footerFontColor(#49bcab, 16px);
+    line-height: 40px;
+  }
+  p {
+    .footerFontColor(#777, 14px);
+  }
+  input {
+    .widHei(380px, 45px);
+    overflow: hidden;
+    border: solid 1px #f5f5f5;
+    border-radius: 5%;
+    margin: 25px 0 20px 0;
+  }
+}
+.icon {
+  margin-top: 80px;
+  .my-icon {
+    cursor: pointer;
+    .footerFontColor(#49bcab, 22px);
+    transition: all 1s;
+    margin-right: 23px;
+    &:hover {
+      color: #000;
+    }
+  }
+}
+.brand {
   border-top: solid 1px #777;
   h1 {
     display: inline;
     font-size: 30px;
     font-weight: normal;
     line-height: 102px;
-  .margin(0,0,0,5%);
+    margin: 0px 2% 0 5%;
   }
-}
-.message {
-  max-width: 1319px;
-  height: 495px;
-  .margin(80px,0,0,0);
-  dt {
-    font-size: 30px;
-  .margin(0,0,20px,0);
+  .brand-num {
+    margin-left: 1%;
+    .footerFontColor(#777, 12px);
   }
-  dd {
-    span{
-      font-weight: 700;
-      cursor: pointer;
-      padding-bottom: 4px;
-      &:hover{
-        border-bottom : solid 2px #49bcab ; 
-      }
+  .brand-support {
+    .footerFontColor(#373232, 12px);
+    cursor: pointer;
+    transition: all 1s;
+    &:hover {
+      color: #49bcab;
     }
-    .footerFontColor(#49bcab, 16px);
-    line-height: 40px;
   }
-}
-.icon {
-  .margin(80px,0,0,0);
-}
-.share {
-  display: block;
-  float: left;
-  width: 25px;
-  height: 25px;
-  .margin(20%,20px,0,0);
-  img {
-    width: 100%;
-  }
-}
-.brand {
-  border-top: solid 1px #777;
 }
 .btn {
   .btnStyle(170px, 46px);
